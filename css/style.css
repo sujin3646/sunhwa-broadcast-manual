@@ -193,3 +193,29 @@ cursor:pointer;
 opacity:0.8;
 
 }
+
+.notice-box{
+
+background:#f3f4f6;
+
+padding:20px;
+
+margin:20px;
+
+border-radius:15px;
+
+}
+
+
+.notice-box h2{
+
+margin-top:0;
+
+}
+
+
+.notice-box li{
+
+margin:10px 0;
+
+}
