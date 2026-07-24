@@ -4,6 +4,7 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>장비 매뉴얼</title>
@@ -16,17 +17,10 @@
 <body>
 
 
-<header>
-
 <h1>📖 장비 매뉴얼</h1>
 
-</header>
 
-
-
-<main id="detail">
-
-</main>
+<div id="detail"></div>
 
 
 
@@ -35,7 +29,7 @@
 
 fetch("./data/sample.json")
 
-.then(response => response.json())
+.then(res => res.json())
 
 .then(data => {
 
@@ -47,7 +41,7 @@ new URLSearchParams(location.search)
 
 
 const item =
-data.find(e => e.id == id);
+data.find(x => x.id == id);
 
 
 
@@ -62,19 +56,16 @@ document.getElementById("detail").innerHTML = `
 </h2>
 
 
-
 <p>
 📂 <b>카테고리</b><br>
 ${item.category}
 </p>
 
 
-
 <p>
 👤 <b>담당학생</b><br>
 ${item.manager}
 </p>
-
 
 
 <hr>
@@ -84,7 +75,6 @@ ${item.manager}
 ⚙ <b>사용방법</b><br>
 ${item.step.replaceAll("\n","<br>")}
 </p>
-
 
 
 <hr>
@@ -103,7 +93,7 @@ ${item.warning.replaceAll("\n","<br>")}
 
 
 <img
-src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${location.href}"
+src="https://quickchart.io/qr?text=${encodeURIComponent(location.href)}&size=200"
 >
 
 
@@ -111,7 +101,6 @@ src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${location.hr
 
 
 `;
-
 
 
 });
