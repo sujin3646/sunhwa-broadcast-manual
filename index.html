@@ -27,40 +27,21 @@
 
 
 
-<main>
-
-
 <section class="notice-box">
-
 
 <h2>
 📢 공지사항
 </h2>
 
-
 <ul>
 
+<li>방송 장비 사용 후 정리하기</li>
 
-<li>
-방송부 운영 시스템 오픈
-</li>
-
-
-<li>
-장비 사용 후 원래 위치에 정리하기
-</li>
-
-
-<li>
-장비 이상 발견 시 방송부장에게 전달
-</li>
-
+<li>장비 이상 발견 시 방송부장에게 전달</li>
 
 </ul>
 
-
 </section>
-
 
 
 
@@ -69,7 +50,50 @@
 
 
 <h2>
-🔍 장비 목록
+🔍 장비 검색
+</h2>
+
+
+<input 
+id="search"
+placeholder="장비명 / 카테고리 / 담당학생 검색"
+onkeyup="searchEquipment()"
+>
+
+
+
+<div class="category">
+
+
+<button onclick="filterCategory('전체')">
+전체
+</button>
+
+
+<button onclick="filterCategory('강당')">
+📂 강당
+</button>
+
+
+<button onclick="filterCategory('방송실')">
+📂 방송실
+</button>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+<section>
+
+
+<h2>
+🎤 장비 목록
 </h2>
 
 
@@ -79,10 +103,6 @@
 
 
 </section>
-
-
-
-</main>
 
 
 
