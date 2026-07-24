@@ -96,3 +96,30 @@ function displayEquipment(list){
 
 
 }
+
+function filterCategory(category){
+
+
+    if(category=="전체"){
+
+        displayEquipment(equipments);
+
+        return;
+
+    }
+
+
+
+    let result =
+    equipments.filter(item =>
+
+        item.category == category
+
+    );
+
+
+
+    displayEquipment(result);
+
+
+}
