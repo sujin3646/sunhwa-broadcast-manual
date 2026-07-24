@@ -1,61 +1,43 @@
 <!DOCTYPE html>
-
 <html lang="ko">
-
 
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
-<title>
-장비 매뉴얼
-</title>
-
+<title>장비 매뉴얼</title>
 
 <link rel="stylesheet" href="css/style.css">
 
-
 </head>
-
 
 
 <body>
 
 
-
 <header>
 
-<h1>
-📖 장비 매뉴얼
-</h1>
+<h1>📖 장비 매뉴얼</h1>
 
 </header>
 
 
 
-
 <main id="detail">
 
-
 </main>
-
-
 
 
 
 <script>
 
 
-fetch("data/sample.json")
+fetch("./data/sample.json")
 
+.then(response => response.json())
 
-.then(response=>response.json())
-
-
-.then(data=>{
+.then(data => {
 
 
 const id =
@@ -65,7 +47,7 @@ new URLSearchParams(location.search)
 
 
 const item =
-data.find(e=>e.id==id);
+data.find(e => e.id == id);
 
 
 
@@ -76,49 +58,53 @@ document.getElementById("detail").innerHTML = `
 
 
 <h2>
-${item.name}
+🎤 ${item.name}
 </h2>
 
 
+
 <p>
-📂 카테고리 :
+📂 <b>카테고리</b><br>
 ${item.category}
 </p>
 
 
 
 <p>
-👤 담당 학생 :
+👤 <b>담당학생</b><br>
 ${item.manager}
 </p>
 
 
 
-
-<h3>
-사용 순서
-</h3>
+<hr>
 
 
 <p>
-
+⚙ <b>사용방법</b><br>
 ${item.step.replaceAll("\n","<br>")}
-
 </p>
 
 
+
+<hr>
+
+
+<p>
+⚠ <b>주의사항</b><br>
+${item.warning.replaceAll("\n","<br>")}
+</p>
 
 
 
 <h3>
-⚠ 주의사항
+📱 QR 코드
 </h3>
 
 
-<p>
-${item.warning}
-</p>
-
+<img
+src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${location.href}"
+>
 
 
 </div>
@@ -131,12 +117,9 @@ ${item.warning}
 });
 
 
-
 </script>
 
 
-
 </body>
-
 
 </html>
