@@ -8,9 +8,9 @@ fetch("./data/sample.json")
 
 .then(data => {
 
-equipments = data;
+    equipments = data;
 
-displayEquipment(equipments);
+    displayEquipment(equipments);
 
 });
 
@@ -21,58 +21,55 @@ displayEquipment(equipments);
 function displayEquipment(list){
 
 
-const box =
-document.getElementById("equipmentList");
+    const box =
+    document.getElementById("equipmentList");
 
 
-box.innerHTML="";
-
-
-
-list.forEach(item=>{
-
-
-box.innerHTML += `
-
-
-<div class="card">
-
-
-<h3>
-🎤 ${item.name}
-</h3>
-
-
-<p>
-📂 ${item.category}
-</p>
-
-
-<p>
-👤 ${item.manager}
-</p>
+    box.innerHTML = "";
 
 
 
-<a href="equipment.html?id=${item.id}">
-
-📖 매뉴얼 보기
-
-</a>
+    list.forEach(item => {
 
 
-</div>
+        box.innerHTML += `
 
 
-`;
+        <div class="card">
 
 
-});
+        <h3>
+        🎤 ${item.name}
+        </h3>
+
+
+        <p>
+        📂 ${item.category}
+        </p>
+
+
+        <p>
+        👤 ${item.manager || "미정"}
+        </p>
+
+
+        <a href="equipment.html?id=${item.id}">
+
+        📖 매뉴얼 보기
+
+        </a>
+
+
+        </div>
+
+
+        `;
+
+
+    });
 
 
 }
-
-
 
 
 
@@ -81,30 +78,27 @@ box.innerHTML += `
 function filterCategory(category){
 
 
-
-if(category=="전체"){
-
-displayEquipment(equipments);
-
-return;
-
-}
+    if(category === "전체"){
 
 
+        displayEquipment(equipments);
 
-const result =
-equipments.filter(item =>
-item.category === category
-);
+        return;
+
+    }
 
 
 
-displayEquipment(result);
+    const result =
+    equipments.filter(item =>
+    item.category === category
+    );
 
+
+    displayEquipment(result);
 
 
 }
-
 
 
 
@@ -115,36 +109,63 @@ displayEquipment(result);
 function searchEquipment(){
 
 
-
-const keyword =
-document.getElementById("search").value
-.toLowerCase();
-
-
-
-const result =
-equipments.filter(item =>
+    const keyword =
+    document
+    .getElementById("search")
+    .value
+    .toLowerCase()
+    .trim();
 
 
 
-item.name.toLowerCase().includes(keyword)
-
-||
-
-item.category.toLowerCase().includes(keyword)
-
-||
-
-item.manager.toLowerCase().includes(keyword)
+    if(keyword === ""){
 
 
+        displayEquipment(equipments);
 
-);
+        return;
+
+    }
 
 
 
-displayEquipment(result);
+    const result =
+    equipments.filter(item => {
 
+
+        const name =
+        item.name || "";
+
+
+        const category =
+        item.category || "";
+
+
+        const manager =
+        item.manager || "";
+
+
+
+        return (
+
+        name.toLowerCase().includes(keyword)
+
+        ||
+
+        category.toLowerCase().includes(keyword)
+
+        ||
+
+        manager.toLowerCase().includes(keyword)
+
+        );
+
+
+    });
+
+
+
+    displayEquipment(result);
 
 
 }
