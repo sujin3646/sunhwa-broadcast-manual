@@ -1,58 +1,19 @@
-const searchInput =
-document.getElementById("searchInput");
+document
+.getElementById("searchInput")
+.addEventListener("input", function(){
 
+    let keyword = this.value.toLowerCase();
 
+    let result = equipments.filter(function(item){
 
-if(searchInput){
+        return (
+            item.name.toLowerCase().includes(keyword) ||
+            item.category.toLowerCase().includes(keyword) ||
+            item.manager.toLowerCase().includes(keyword)
+        );
 
+    });
 
-
-searchInput.addEventListener(
-"input",
-function(){
-
-
-let keyword =
-this.value.toLowerCase();
-
-
-
-let result =
-equipments.filter(item=>
-
-
-
-item.name
-.toLowerCase()
-.includes(keyword)
-
-
-
-||
-
-item.category
-.toLowerCase()
-.includes(keyword)
-
-
-
-||
-
-item.manager
-.toLowerCase()
-.includes(keyword)
-
-
-
-);
-
-
-
-displayEquipment(result);
-
-
+    displayEquipment(result);
 
 });
-
-
-}
