@@ -17,10 +17,17 @@
 <body>
 
 
+<header>
+
 <h1>📖 장비 매뉴얼</h1>
 
+</header>
 
-<div id="detail"></div>
+
+
+<main id="detail">
+
+</main>
 
 
 
@@ -29,84 +36,133 @@
 
 fetch("./data/sample.json")
 
-.then(res => res.json())
+.then(response => response.json())
 
 .then(data => {
 
 
-const id =
-new URLSearchParams(location.search)
-.get("id");
+    const params =
+    new URLSearchParams(window.location.search);
+
+
+    const id =
+    Number(params.get("id"));
 
 
 
-const item =
-data.find(x => x.id == id);
+    const item =
+    data.find(e => e.id === id);
 
 
 
-document.getElementById("detail").innerHTML = `
+    if(!item){
 
+        document.getElementById("detail").innerHTML =
+        "<div class='card'>장비 정보를 찾을 수 없습니다.</div>";
 
-<div class="card">
+        return;
 
-
-<h2>
-🎤 ${item.name}
-</h2>
-
-
-<p>
-📂 <b>카테고리</b><br>
-${item.category}
-</p>
-
-
-<p>
-👤 <b>담당학생</b><br>
-${item.manager}
-</p>
-
-
-<hr>
-
-
-<p>
-⚙ <b>사용방법</b><br>
-${item.step.replaceAll("\n","<br>")}
-</p>
-
-
-<hr>
-
-
-<p>
-⚠ <b>주의사항</b><br>
-${item.warning.replaceAll("\n","<br>")}
-</p>
+    }
 
 
 
-<h3>
-📱 QR 코드
-</h3>
+    const qrURL =
+    window.location.href;
 
 
-<img
-src="https://quickchart.io/qr?text=${encodeURIComponent(location.href)}&size=200"
->
+
+    document.getElementById("detail").innerHTML = `
 
 
-</div>
+
+    <div class="card">
 
 
-`;
+        <h2>
+        🎤 ${item.name}
+        </h2>
+
+
+
+        <p>
+        📂 <b>카테고리</b><br>
+        ${item.category}
+        </p>
+
+
+
+        <p>
+        👤 <b>담당학생</b><br>
+        ${item.manager}
+        </p>
+
+
+
+        <hr>
+
+
+
+        <p>
+        ⚙ <b>사용방법</b><br><br>
+        ${item.step.replaceAll("\n","<br>")}
+        </p>
+
+
+
+        <hr>
+
+
+
+        <p>
+        ⚠ <b>주의사항</b><br><br>
+        ${item.warning.replaceAll("\n","<br>")}
+        </p>
+
+
+
+        <hr>
+
+
+
+        <h3>
+        📱 장비 QR 코드
+        </h3>
+
+
+        <img
+        class="qr"
+        src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(qrURL)}"
+        alt="장비 QR 코드"
+        >
+
+
+
+    </div>
+
+
+
+    `;
+
+
+
+})
+
+
+.catch(error => {
+
+
+console.log(error);
+
+
+document.getElementById("detail").innerHTML =
+"<div class='card'>데이터 오류가 발생했습니다.</div>";
 
 
 });
 
 
 </script>
+
 
 
 </body>
