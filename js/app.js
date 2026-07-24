@@ -1,8 +1,7 @@
 let equipments = [];
 
 
-
-fetch("data/sample.json")
+fetch("./data/sample.json")
 
 .then(response => response.json())
 
@@ -11,6 +10,15 @@ fetch("data/sample.json")
     equipments = data;
 
     displayEquipment(equipments);
+
+})
+
+.catch(error => {
+
+    console.log(error);
+
+    document.getElementById("equipmentList").innerHTML =
+    "<p>⚠ 장비 데이터를 불러오지 못했습니다.</p>";
 
 });
 
@@ -25,19 +33,16 @@ function displayEquipment(list){
     document.getElementById("equipmentList");
 
 
-
     if(!box){
         return;
     }
 
 
-
-    box.innerHTML="";
-
+    box.innerHTML = "";
 
 
 
-    list.forEach(item=>{
+    list.forEach(item => {
 
 
 
@@ -54,21 +59,30 @@ function displayEquipment(list){
 
 
             <p>
-            📂 ${item.category}
+            📂 <b>카테고리</b><br>
+            ${item.category}
             </p>
 
 
 
             <p>
-            👤 담당학생 :
+            👤 <b>담당학생</b><br>
             ${item.manager}
             </p>
 
 
 
-            <a href="equipment.html?id=${item.id}">
-            자세히 보기 →
-            </a>
+            <p>
+            ⚙ <b>사용 방법</b><br>
+            ${item.step.replaceAll("\n","<br>")}
+            </p>
+
+
+
+            <p>
+            ⚠ <b>주의사항</b><br>
+            ${item.warning.replaceAll("\n","<br>")}
+            </p>
 
 
 
