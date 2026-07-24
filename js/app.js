@@ -56,7 +56,9 @@ function displayEquipment(list){
             🎤 ${item.name}
             </h3>
 
-
+<a href="equipment.html?id=${item.id}">
+📖 매뉴얼 보기
+</a>
 
             <p>
             📂 <b>카테고리</b><br>
