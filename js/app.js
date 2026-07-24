@@ -18,6 +18,52 @@ fetch("./data/sample.json")
 
 
 
+function getIcon(name){
+
+
+    if(name.includes("전광판"))
+        return "📺";
+
+
+    if(name.includes("조명"))
+        return "💡";
+
+
+    if(name.includes("캠"))
+        return "📷";
+
+
+    if(name.includes("마이크"))
+        return "🎤";
+
+
+    if(name.includes("종"))
+        return "🔔";
+
+
+    if(name.includes("영어"))
+        return "🎧";
+
+
+    if(name.includes("줌"))
+        return "💻";
+
+
+    if(name.includes("시보기"))
+        return "⏰";
+
+
+    return "🔧";
+
+
+}
+
+
+
+
+
+
+
 function displayEquipment(list){
 
 
@@ -39,7 +85,10 @@ function displayEquipment(list){
 
 
         <h3>
-        🎤 ${item.name}
+
+        ${getIcon(item.name)}
+        ${item.name}
+
         </h3>
 
 
@@ -75,11 +124,13 @@ function displayEquipment(list){
 
 
 
+
+
 function filterCategory(category){
 
 
-    if(category === "전체"){
 
+    if(category==="전체"){
 
         displayEquipment(equipments);
 
@@ -89,13 +140,12 @@ function filterCategory(category){
 
 
 
-    const result =
-    equipments.filter(item =>
-    item.category === category
+    displayEquipment(
+
+        equipments.filter(item =>
+        item.category === category)
+
     );
-
-
-    displayEquipment(result);
 
 
 }
@@ -113,13 +163,11 @@ function searchEquipment(){
     document
     .getElementById("search")
     .value
-    .toLowerCase()
-    .trim();
+    .toLowerCase();
 
 
 
-    if(keyword === ""){
-
+    if(keyword===""){
 
         displayEquipment(equipments);
 
@@ -130,33 +178,29 @@ function searchEquipment(){
 
 
     const result =
-    equipments.filter(item => {
-
-
-        const name =
-        item.name || "";
-
-
-        const category =
-        item.category || "";
-
-
-        const manager =
-        item.manager || "";
-
+    equipments.filter(item=>{
 
 
         return (
 
-        name.toLowerCase().includes(keyword)
+        item.name
+        .toLowerCase()
+        .includes(keyword)
+
 
         ||
 
-        category.toLowerCase().includes(keyword)
+        item.category
+        .toLowerCase()
+        .includes(keyword)
+
 
         ||
 
-        manager.toLowerCase().includes(keyword)
+        (item.manager || "")
+        .toLowerCase()
+        .includes(keyword)
+
 
         );
 
