@@ -2,7 +2,9 @@
 <html lang="ko">
 
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>학교 방송부 운영 시스템</title>
@@ -17,64 +19,66 @@
 
 <header>
 
-<h1>🏫 학교 방송부 운영 시스템</h1>
-
-<p>
-방송 장비 매뉴얼 관리 시스템
-</p>
+<h1>
+🏫 학교 방송부 운영 시스템
+</h1>
 
 </header>
-
-
-
-<section class="search-box">
-
-<input 
-id="searchInput"
-type="text"
-placeholder="🔍 장비명 / 카테고리 / 담당학생 검색">
-
-</section>
 
 
 
 <main>
 
 
-<h2>📂 장비 목록</h2>
+<section class="notice-box">
 
-<div class="category-menu">
 
-<button onclick="filterCategory('전체')">
-전체
-</button>
+<h2>
+📢 공지사항
+</h2>
 
-<button onclick="filterCategory('강당')">
-🏫 강당
-</button>
 
-<button onclick="filterCategory('방송실')">
-📡 방송실
-</button>
+<ul>
 
-</div>
+
+<li>
+방송부 운영 시스템 오픈
+</li>
+
+
+<li>
+장비 사용 후 원래 위치에 정리하기
+</li>
+
+
+<li>
+장비 이상 발견 시 방송부장에게 전달
+</li>
+
+
+</ul>
+
+
+</section>
+
+
+
+
+
+<section>
+
+
+<h2>
+🔍 장비 목록
+</h2>
+
 
 <div id="equipmentList">
 
 </div>
 
 
-
-<h2>📢 공지사항</h2>
-
-
-<div class="notice">
-
-<p>✅ 방송부 운영 시스템이 개설되었습니다.</p>
-
-<p>📌 장비 사용 후 반드시 원래 위치에 정리해주세요.</p>
-
-</div>
+</section>
 
 
 
@@ -82,17 +86,9 @@ placeholder="🔍 장비명 / 카테고리 / 담당학생 검색">
 
 
 
-<footer>
-
-학교 방송부 운영 시스템 v1.0
-
-</footer>
-
 
 
 <script src="js/app.js"></script>
-
-<script src="js/search.js"></script>
 
 
 </body>
