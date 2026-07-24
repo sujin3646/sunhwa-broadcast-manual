@@ -157,3 +157,39 @@ footer{
     }
 
 }
+
+.category-menu{
+
+text-align:center;
+
+margin:20px;
+
+}
+
+
+.category-menu button{
+
+padding:12px 20px;
+
+margin:5px;
+
+border:none;
+
+border-radius:10px;
+
+background:#1e3a8a;
+
+color:white;
+
+font-size:15px;
+
+cursor:pointer;
+
+}
+
+
+.category-menu button:hover{
+
+opacity:0.8;
+
+}
