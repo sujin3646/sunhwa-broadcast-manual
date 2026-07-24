@@ -1,185 +1,25 @@
-*{
-    box-sizing:border-box;
-}
+.category{
 
+display:flex;
 
-body{
+gap:10px;
 
-    margin:0;
+justify-content:center;
 
-    font-family:
-    "Apple SD Gothic Neo",
-    "Malgun Gothic",
-    sans-serif;
-
-    background:#f5f7fb;
-
-    color:#222;
+margin:20px 0;
 
 }
 
 
-
-header{
-
-    background:#1e3a8a;
-
-    color:white;
-
-    text-align:center;
-
-    padding:30px;
-
-}
-
-
-
-header h1{
-
-    margin:0;
-
-    font-size:28px;
-
-}
-
-
-
-.search-box{
-
-    padding:20px;
-
-    text-align:center;
-
-}
-
-
-
-input{
-
-    width:90%;
-
-    max-width:500px;
-
-    padding:15px;
-
-    font-size:16px;
-
-    border-radius:10px;
-
-    border:1px solid #ccc;
-
-}
-
-
-
-main{
-
-    padding:20px;
-
-}
-
-
-
-.card{
-
-    background:white;
-
-    padding:20px;
-
-    margin-bottom:15px;
-
-    border-radius:15px;
-
-    box-shadow:
-    0 3px 10px rgba(0,0,0,0.1);
-
-}
-
-
-
-.card h3{
-
-    color:#1e3a8a;
-
-}
-
-
-
-.card a{
-
-    text-decoration:none;
-
-    color:#2563eb;
-
-    font-weight:bold;
-
-}
-
-
-
-.notice{
-
-    background:white;
-
-    padding:20px;
-
-    border-radius:15px;
-
-}
-
-
-
-footer{
-
-    text-align:center;
-
-    padding:20px;
-
-    color:#777;
-
-}
-
-
-
-@media(max-width:600px){
-
-    header h1{
-
-        font-size:22px;
-
-    }
-
-
-    main{
-
-        padding:10px;
-
-    }
-
-}
-
-.category-menu{
-
-text-align:center;
-
-margin:20px;
-
-}
-
-
-.category-menu button{
-
-padding:12px 20px;
-
-margin:5px;
+.category button{
 
 border:none;
 
-border-radius:10px;
+padding:12px 22px;
 
-background:#1e3a8a;
+border-radius:25px;
 
-color:white;
+background:#e0e7ff;
 
 font-size:15px;
 
@@ -188,34 +28,25 @@ cursor:pointer;
 }
 
 
-.category-menu button:hover{
+.category button:hover{
 
-opacity:0.8;
-
-}
-
-.notice-box{
-
-background:#f3f4f6;
-
-padding:20px;
-
-margin:20px;
-
-border-radius:15px;
+transform:scale(1.05);
 
 }
 
 
-.notice-box h2{
+#search{
 
-margin-top:0;
+width:80%;
 
-}
+max-width:400px;
 
+padding:14px;
 
-.notice-box li{
+border-radius:20px;
 
-margin:10px 0;
+border:1px solid #ccc;
+
+font-size:16px;
 
 }
