@@ -1,73 +1,73 @@
 let equipments = [];
 
 
+
 fetch("./data/sample.json")
 
 .then(response => response.json())
 
 .then(data => {
 
-    equipments = data;
+equipments = data;
 
-    displayEquipment(equipments);
+displayEquipment(equipments);
 
 });
+
+
 
 
 
 function displayEquipment(list){
 
 
-    const box =
-    document.getElementById("equipmentList");
+const box =
+document.getElementById("equipmentList");
 
 
-    box.innerHTML = "";
-
-
-
-    list.forEach(item => {
-
-
-        box.innerHTML += `
-
-
-        <div class="card">
-
-
-            <h3>
-            🎤 ${item.name}
-            </h3>
-
-
-            <p>
-            📂 카테고리<br>
-            ${item.category}
-            </p>
-
-
-            <p>
-            👤 담당학생<br>
-            ${item.manager}
-            </p>
+box.innerHTML="";
 
 
 
-            <a href="equipment.html?id=${item.id}">
-            
-            📖 매뉴얼 보기
-            
-            </a>
+list.forEach(item=>{
+
+
+box.innerHTML += `
+
+
+<div class="card">
+
+
+<h3>
+🎤 ${item.name}
+</h3>
+
+
+<p>
+📂 ${item.category}
+</p>
+
+
+<p>
+👤 ${item.manager}
+</p>
 
 
 
-        </div>
+<a href="equipment.html?id=${item.id}">
+
+📖 매뉴얼 보기
+
+</a>
 
 
-        `;
+</div>
 
 
-    });
+`;
+
+
+});
 
 
 }
@@ -75,26 +75,76 @@ function displayEquipment(list){
 
 
 
+
+
+
 function filterCategory(category){
 
 
-    if(category=="전체"){
 
-        displayEquipment(equipments);
+if(category=="전체"){
 
-        return;
+displayEquipment(equipments);
 
-    }
+return;
 
-
-
-    const result =
-    equipments.filter(item =>
-        item.category == category
-    );
+}
 
 
-    displayEquipment(result);
+
+const result =
+equipments.filter(item =>
+item.category === category
+);
+
+
+
+displayEquipment(result);
+
+
+
+}
+
+
+
+
+
+
+
+
+function searchEquipment(){
+
+
+
+const keyword =
+document.getElementById("search").value
+.toLowerCase();
+
+
+
+const result =
+equipments.filter(item =>
+
+
+
+item.name.toLowerCase().includes(keyword)
+
+||
+
+item.category.toLowerCase().includes(keyword)
+
+||
+
+item.manager.toLowerCase().includes(keyword)
+
+
+
+);
+
+
+
+displayEquipment(result);
+
 
 
 }
