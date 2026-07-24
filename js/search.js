@@ -1,12 +1,23 @@
-const searchInput = document.getElementById("searchInput");
+const searchInput =
+document.getElementById("searchInput");
+
+
+
+if(searchInput){
 
 
 searchInput.addEventListener("input", function(){
 
-    const keyword = this.value.toLowerCase();
+
+    const keyword =
+    this.value.toLowerCase();
 
 
-    const result = equipments.filter(item => {
+
+    const result =
+    equipments.filter(item => {
+
+
 
         return (
 
@@ -30,10 +41,16 @@ searchInput.addEventListener("input", function(){
 
         );
 
+
     });
+
 
 
     displayEquipment(result);
 
 
+
 });
+
+
+}
